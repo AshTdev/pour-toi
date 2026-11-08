@@ -180,6 +180,46 @@
       color: rgba(255, 255, 255, 0.78);
       text-shadow: 0 2px 20px rgba(255, 255, 255, 0.15);
     }
+
+    /* Tung Tung Sahur Container & Animation */
+    .tung-wrapper {
+      margin-top: 22px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform: scale(0);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+      perspective: 900px;
+    }
+
+    .tung-wrapper.show {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .tung-img {
+      width: 140px;
+      height: 140px;
+      border-radius: 22px;
+      object-fit: cover;
+      border: 2px solid rgba(255, 255, 255, 0.22);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.55), 0 0 24px rgba(255, 120, 160, 0.3);
+      animation: tung-rotate 3.6s linear infinite;
+      cursor: pointer;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    @keyframes tung-rotate {
+      0% {
+        transform: perspective(900px) rotateY(0deg);
+      }
+      100% {
+        transform: perspective(900px) rotateY(360deg);
+      }
+    }
   </style>
 </head>
 <body>
@@ -192,6 +232,9 @@
 
     <div class="message-card" id="messageCard">
       <p class="message-text">C'était juste pour te prévenir que je vais bientôt aller dormir</p>
+      <div class="tung-wrapper" id="tungWrapper">
+        <img src="tung-tung.png" alt="Tung Tung Sahur" class="tung-img" id="tungImg" />
+      </div>
     </div>
   </div>
 
@@ -441,6 +484,8 @@
     // --- Main Button Click Flow ---
     const mainBtn = document.getElementById('mainBtn');
     const messageCard = document.getElementById('messageCard');
+    const tungWrapper = document.getElementById('tungWrapper');
+    const tungImg = document.getElementById('tungImg');
 
     mainBtn.addEventListener('click', (e) => {
       const rect = mainBtn.getBoundingClientRect();
@@ -460,8 +505,21 @@
       setTimeout(() => {
         messageCard.classList.add('show');
         canInteractiveSpawn = true;
+
+        // Reveal Tung Tung Sahur rotating on himself at the very end (~1.8s after message)
+        setTimeout(() => {
+          tungWrapper.classList.add('show');
+        }, 1800);
       }, 1600);
     });
+
+    // Tap Tung Tung Sahur to toggle / boost rotation speed
+    if (tungImg) {
+      tungImg.addEventListener('click', (e) => {
+        e.stopPropagation();
+        tungImg.style.animationDuration = tungImg.style.animationDuration === '0.8s' ? '3.6s' : '0.8s';
+      });
+    }
   </script>
 </body>
 </html>
