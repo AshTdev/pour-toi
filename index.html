@@ -144,9 +144,9 @@
     /* Final Message */
     .message-card {
       position: absolute;
-      max-width: 460px;
+      max-width: 480px;
       width: 90%;
-      padding: 32px 28px;
+      padding: 32px 30px;
       text-align: center;
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid rgba(255, 255, 255, 0.09);
@@ -172,19 +172,6 @@
       50% { transform: translateY(-7px); }
     }
 
-    .message-moon {
-      font-size: 2.2rem;
-      margin-bottom: 14px;
-      display: inline-block;
-      filter: drop-shadow(0 0 16px rgba(255, 225, 150, 0.5));
-      animation: moon-glow 4s infinite ease-in-out alternate;
-    }
-
-    @keyframes moon-glow {
-      0% { transform: rotate(-5deg); filter: drop-shadow(0 0 10px rgba(255, 225, 150, 0.4)); }
-      100% { transform: rotate(5deg); filter: drop-shadow(0 0 22px rgba(255, 225, 150, 0.7)); }
-    }
-
     .message-text {
       font-size: clamp(1.2rem, 4.5vw, 1.55rem);
       line-height: 1.6;
@@ -192,13 +179,6 @@
       letter-spacing: 0.3px;
       color: rgba(255, 255, 255, 0.78);
       text-shadow: 0 2px 20px rgba(255, 255, 255, 0.15);
-    }
-
-    .sub-hint {
-      margin-top: 18px;
-      font-size: 0.85rem;
-      color: rgba(255, 255, 255, 0.35);
-      font-weight: 300;
     }
   </style>
 </head>
@@ -208,15 +188,10 @@
   <canvas id="canvas"></canvas>
 
   <div class="container">
-    <button class="center-btn" id="mainBtn">
-      <span>Clique ici</span>
-      <span class="icon">❤️</span>
-    </button>
+    <button class="center-btn" id="mainBtn">Clique ici</button>
 
     <div class="message-card" id="messageCard">
-      <div class="message-moon">🌙</div>
       <p class="message-text">C'était juste pour te prévenir que je vais bientôt aller dormir</p>
-      <div class="sub-hint">✨ Bonne nuit... ✨</div>
     </div>
   </div>
 

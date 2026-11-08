@@ -1,5 +1,5 @@
-# Bonne nuit ✨
+# Pour toi ✨
 
-Une page douce et animée pour souhaiter une bonne nuit avec des cœurs et un message transparent.
+Une page douce et animée avec des cœurs et un message transparent.
 
-Accès en ligne : https://ashtdev.github.io/bonne-nuit/
+Accès en ligne : https://ashtdev.github.io/pour-toi/
